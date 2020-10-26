@@ -5,14 +5,14 @@ function InfoBox({ title, newCases, totalCases }) {
     return (
         <Card className='infoBox'>
             <CardContent>
-                <Typography>
-                    CoronaVirus Cases
+                <Typography className='infoBox__title'>
+                    {title}
                 </Typography>
-                <Typography>
-                    +2000
+                <Typography className='infoBox__cases' variant="h5" component="h2">
+                    {newCases}
                 </Typography>
-                <Typography>
-                    +1500
+                <Typography className='infoBox__total' color='textSecondary'>
+                    {totalCases}
                 </Typography>
             </CardContent>
         </Card>

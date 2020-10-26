@@ -1,29 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import './Header.css'
 import { FormControl, Select, MenuItem } from '@material-ui/core';
-function Header() {
-    // * for getting list of country names with their iso codes
-    const [countries, setCountries] = useState([]);
-    // *useful for showing selected value on select input
-    const [country, setCountry] = useState('worldwide');
-    // *used for putting a country statistics when clicked from the select input
-    const [countryStats, setCountryStats] = useState();
-    useEffect(() => {
-        const getCountries = async () => {
-            const response = await fetch('https://disease.sh/v3/covid-19/countries');
-            const data = await response.json();
-            const countriesFromApi = data.map(country => (
-                {
-                    id: country.countryInfo._id,
-                    name: country.country,
-                    value: country.countryInfo.iso2
-                }
-            ));
-
-            setCountries(countriesFromApi);
-        }
-        getCountries();
-    }, [])
+function Header({ country, countries, setCountry, setCountryStats }) {
 
     const handleOnCountryChange = async (event) => {
         const countryCode = event.target.value;
