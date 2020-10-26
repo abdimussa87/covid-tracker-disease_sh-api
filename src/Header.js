@@ -7,7 +7,7 @@ function Header({ country, countries, setCountry, setCountryStats }) {
         const countryCode = event.target.value;
         // *useful for showing selected value on select input
         setCountry(countryCode);
-        const url = countryCode === 'worldwide' ? 'disease.sh/v3/covid-19/all' : `disease.sh/v3/covid-19/countries/${countryCode}`;
+        const url = countryCode === 'worldwide' ? 'https://disease.sh/v3/covid-19/all' : `https://disease.sh/v3/covid-19/countries/${countryCode}`;
         const response = await fetch(url);
         const data = await response.json();
         setCountryStats(data);
